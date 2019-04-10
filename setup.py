@@ -15,6 +15,7 @@ setup(
     author = 'Zhang Yi',
     author_email = 'loeyae@gmail.com',
     license = "Apache License, Version 2.0",
+    url="https://github.com/loeyae/lspider_robot.git",
     install_requires = [
         'aiml>=0.9.1'
         'itchat>=1.3.10',
