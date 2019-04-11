@@ -11,7 +11,7 @@ from setuptools import setup, find_packages
 setup(
     name = "cdspider_robot",
     version = "0.1",
-    description = "Color-Data数据采集框架机器人",
+    description = "数据采集框架聊天机器人",
     author = 'Zhang Yi',
     author_email = 'loeyae@gmail.com',
     license = "Apache License, Version 2.0",
@@ -38,6 +38,15 @@ setup(
         'cdspider.robots': [
             'wxchat=cdspider_robot.robots:WxchatRobots',
             'aichat=cdspider_robot.robots:AichatRobots',
+        ],
+        'cdspider.dao.mongo': [
+            'WechatRobotChatInfoDB=cdspider_robot.database.mongo:WechatRobotChatInfoDB',
+            'WechatRobotChatRoomsDB=cdspider_robot.database.mongo:WechatRobotChatRoomsDB',
+            'WechatRobotFriendsDB=cdspider_robot.database.mongo:WechatRobotFriendsDB',
+            'WechatRobotGroupChatDB=cdspider_robot.database.mongo:WechatRobotGroupChatDB',
+            'WechatRobotInfoDB=cdspider_robot.database.mongo:WechatRobotInfoDB',
+            'WechatRobotMpsChatDB=cdspider_robot.database.mongo:WechatRobotMpsChatDB',
+            'WechatRobotMpsSharingDB=cdspider_robot.database.mongo:WechatRobotMpsSharingDB',
         ]
     }
 )
