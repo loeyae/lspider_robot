@@ -2,13 +2,6 @@
     "debug": true,
     "app_config": "E:/work/src/bys/cdspider_sample/cdspider_sample/config/app.local.json",
     "runtime_dir": "E:/Temp/cdspider/runtime",
-    "proxy": {
-        "proxy_file": "E:/Temp/ip.txt",
-        "user": "hongmai",
-        "password": "soften.cn",
-        "type": "socks",
-        "proxy_rate": "every"
-    },
     "database": {
         "protocol": "mongo",
         "host": "localhost",
@@ -25,22 +18,5 @@
         "password": "0f87990482b26838c1c2702cb1145007",
         "maxsize": 1000000,
         "queue_prefix": "local"
-    },
-     "exc_work": {
-        "mailer": "smtp",
-        "sender": {
-            "host": "mail-bj.beyondsoft.com",
-            "port": 25,
-            "user": "bdopener",
-            "pass": "bdopener20170510",
-            "from": "bdopener@beyondsoft.com",
-            "from_name": "bdopener service"
-        },
-        "receiver": [
-            {
-                "name": "Zhang Yi",
-                "mail": "zhangyi07@beyondsoft.com"
-            }
-        ]
     }
 }
