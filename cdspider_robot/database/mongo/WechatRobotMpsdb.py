@@ -9,8 +9,8 @@
 """
 import time
 import pymongo
-from cdspider.database.base import WechatRobotMpsDB as BaseWechatRobotMpsDB
-from .Mongo import Mongo
+from ..base import WechatRobotMpsDB as BaseWechatRobotMpsDB
+from cdspider.database.mongo import Mongo
 
 class WechatRobotMpsDB(Mongo, BaseWechatRobotMpsDB):
     """
@@ -22,13 +22,13 @@ class WechatRobotMpsDB(Mongo, BaseWechatRobotMpsDB):
         super(WechatRobotMpsDB, self).__init__(connector, table = table, **kwargs)
         collection = self._db.get_collection(self.table)
         indexes = collection.index_information()
-        if not 'IUin' in indexes:
+        if 'IUin' not  in indexes:
             collection.create_index('IUin', name='IUin')
-        if not 'UserName' in indexes:
+        if 'UserName' not  in indexes:
             collection.create_index('UserName', name='UserName')
-        if not 'NickName' in indexes:
+        if 'NickName' not  in indexes:
             collection.create_index([('NickName', pymongo.TEXT)], name='NickName')
-        if not 'ctime' in indexes:
+        if 'ctime' not  in indexes:
             collection.create_index('ctime', name='ctime')
 
     def insert(self, obj = {}):
@@ -38,4 +38,4 @@ class WechatRobotMpsDB(Mongo, BaseWechatRobotMpsDB):
 
     def delete_by_iuin(self, uin):
         where = {"IUin": uin}
-        super(WechatRobotChatRoomsDB, self).delete(where=where, multi=True)
+        super(WechatRobotMpsDB, self).delete(where=where, multi=True)

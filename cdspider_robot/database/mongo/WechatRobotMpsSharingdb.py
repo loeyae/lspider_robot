@@ -9,8 +9,8 @@
 """
 import time
 import pymongo
-from cdspider.database.base import WechatRobotMpsSharingDB as BaseWechatRobotMpsSharingDB
-from .Mongo import Mongo
+from ..base import WechatRobotMpsSharingDB as BaseWechatRobotMpsSharingDB
+from cdspider.database.mongo import Mongo
 
 class WechatRobotMpsSharingDB(Mongo, BaseWechatRobotMpsSharingDB):
     """
@@ -22,9 +22,9 @@ class WechatRobotMpsSharingDB(Mongo, BaseWechatRobotMpsSharingDB):
         super(WechatRobotMpsSharingDB, self).__init__(connector, table = table, **kwargs)
         collection = self._db.get_collection(self.table)
         indexes = collection.index_information()
-        if not 'IUin' in indexes:
+        if 'IUin' not  in indexes:
             collection.create_index('IUin', name='IUin')
-        if not 'ctime' in indexes:
+        if 'ctime' not  in indexes:
             collection.create_index('ctime', name='ctime')
 
     def insert(self, obj = {}):

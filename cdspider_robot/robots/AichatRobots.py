@@ -51,7 +51,7 @@ def extract(msg):
 #        word_list = jieba.analyse.textrank(msg, topK=20, withWeight=False, allowPOS=('ns', 'n', 'vn', 'v')) or jieba.analyse.extract_tags(msg, topK=20, withWeight=False, allowPOS=())
 #        p = " ".join(word_list) if word_list else None
     if not p:
-        word_list = [i for i in jieba.cut(msg) if i and i != " "] #[i for i in jieba.cut(msg) if not i in stopwords_list]
+        word_list = [i for i in jieba.cut(msg) if i and i != " "] #[i for i in jieba.cut(msg) if i not  in stopwords_list]
         p = " ".join(word_list) if word_list else None
     if not p:
         p = msg

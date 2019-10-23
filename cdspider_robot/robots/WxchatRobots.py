@@ -239,7 +239,7 @@ class WxchatRobots(Component):
             try:
                 message = self.message_queue.get_nowait()
                 uuid = utils.md5("%s%s" % (message['user'], message['auser']))
-                if not uuid in self.prepared_session:
+                if uuid not  in self.prepared_session:
                     for fn in self.prepare_reply:
                         fn(robot, uuid)
                     self.prepared_session.add(uuid)

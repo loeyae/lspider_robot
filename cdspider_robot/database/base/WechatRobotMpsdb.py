@@ -8,7 +8,7 @@
 :date:    2018-8-4 21:43:09
 """
 
-from . import Base
+from cdspider.database.base import Base
 
 {
     "wechat_robot_mps": {

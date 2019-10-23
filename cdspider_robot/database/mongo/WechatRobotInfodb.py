@@ -9,8 +9,8 @@
 """
 import time
 import pymongo
-from cdspider.database.base import WechatRobotInfoDB as BaseWechatRobotInfoDB
-from .Mongo import Mongo
+from ..base import WechatRobotInfoDB as BaseWechatRobotInfoDB
+from cdspider.database.mongo import Mongo
 
 class WechatRobotInfoDB(Mongo, BaseWechatRobotInfoDB):
     """
@@ -22,13 +22,13 @@ class WechatRobotInfoDB(Mongo, BaseWechatRobotInfoDB):
         super(WechatRobotInfoDB, self).__init__(connector, table = table, **kwargs)
         collection = self._db.get_collection(self.table)
         indexes = collection.index_information()
-        if not 'Uin' in indexes:
+        if 'Uin' not  in indexes:
             collection.create_index('Uin', unique=True, name='Uin')
-        if not 'UserName' in indexes:
+        if 'UserName' not  in indexes:
             collection.create_index('UserName', name='UserName')
-        if not 'NickName' in indexes:
+        if 'NickName' not  in indexes:
             collection.create_index([('NickName', pymongo.TEXT)], name='NickName')
-        if not 'ctime' in indexes:
+        if 'ctime' not  in indexes:
             collection.create_index('ctime', name='ctime')
 
     def insert(self, obj = {}):
