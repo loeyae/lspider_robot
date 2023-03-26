@@ -9,7 +9,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="cdspider_robot",
-    version="0.1.1",
+    version="0.1.3",
     description="数据采集框架聊天机器人",
     author='Zhang Yi',
     author_email='loeyae@gmail.com',
