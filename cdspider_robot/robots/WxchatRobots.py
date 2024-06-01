@@ -6,17 +6,19 @@
 :author:  Zhang Yi <loeyae@gmail.com>
 :date:    2018-8-29 20:23:59
 """
-import os
 import json
-import time
-import tempfile
-import traceback
 import logging
+import os
+import queue
+import tempfile
+import time
+import traceback
+
 import itchat
-from six.moves import queue
-from itchat.content import *
 from cdspider import Component
 from cdspider.libs import utils
+from itchat.content import *
+
 
 class WxchatRobots(Component):
     """
